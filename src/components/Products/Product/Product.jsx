@@ -13,6 +13,9 @@ import useStyles from './styles'
 
 const Product = ({ product }) => {
   const classes = useStyles()
+
+  const description = product.description.length > 500 ? product.description.substr(0, 500) + "..." : product.description
+
   return (
     <Card className={classes.root}>
       <CardMedia className={classes.media} image={product.image.url || null} title={product.name} />
@@ -23,7 +26,7 @@ const Product = ({ product }) => {
           </Typography>
           <Typography variant="h5">{product.price.formatted_with_symbol}</Typography>
         </div>
-        <Typography dangerouslySetInnerHTML={{__html: product.description}} variant="body2" color="textSecondary" />
+        <Typography dangerouslySetInnerHTML={{ __html: description}} variant="body2" color="textSecondary" />
       </CardContent>
       <CardActions disableSpacing className={classes.cardActions}>
         <IconButton aria-label="add to shopping cart">
