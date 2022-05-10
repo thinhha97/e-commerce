@@ -1,5 +1,6 @@
 import React from 'react'
 import { Container, Typography, Button, Grid } from '@material-ui/core'
+import { Link } from 'react-router-dom'
 import CartItem from './CartItem/CartItem.jsx'
 import useStyles from './styles'
 
@@ -13,7 +14,8 @@ const Cart = ({ cart }) => {
   const EmptyCart = () => {
     return (
       <Typography variant="subtitle1">
-        Bạn không có mặt hàng nào trong giỏ.
+        Bạn không có mặt hàng nào trong giỏ.<br />
+        <Link to="/">Tiếp tục mua hàng</Link>
       </Typography>
     )
   }
