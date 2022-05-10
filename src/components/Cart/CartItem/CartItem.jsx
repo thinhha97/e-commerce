@@ -18,11 +18,11 @@ const CartItem = ({ item }) => {
         alt={item.name}
       />
       <CardContent className={classes.cardContent}>
-        <Typography variant="h4">{item.name}</Typography>
-        <Typography variant="h5">{item.price.formatted_with_symbol}</Typography>
+        <Typography variant="h5">{item.name}</Typography>
+        <Typography variant="h6">{item.line_total.formatted_with_symbol}</Typography>
       </CardContent>
       <CardActions className={classes.cardActions}>
-        <div className={classes.button}>
+        <div className={classes.buttons}>
           <Button type="button" size="small">
             -
           </Button>
@@ -31,7 +31,7 @@ const CartItem = ({ item }) => {
             +
           </Button>
         </div>
-        <Button className={classes.button}
+        <Button className={classes.buttons}
           type="button"
           size="small"
           variant="contained"

@@ -14,6 +14,7 @@ export default makeStyles((theme) => ({
   },
   buttons: {
     display: 'flex',
+    flexDirection: 'row',
     alignItems: 'center',
   },
 }))
