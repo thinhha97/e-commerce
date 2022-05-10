@@ -17,4 +17,7 @@ export default makeStyles((theme) => ({
     flexDirection: 'row',
     alignItems: 'center',
   },
+  textField: {
+    maxWidth: '30px',
+  },
 }))

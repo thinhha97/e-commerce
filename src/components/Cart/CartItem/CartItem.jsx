@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
   Typography,
   Button,
@@ -6,10 +6,13 @@ import {
   CardActions,
   CardMedia,
   CardContent,
+  TextField,
 } from '@material-ui/core'
 import useStyles from './styles'
 const CartItem = ({ item, handleUpdateCartQty, handleRemoveFromCart }) => {
   const classes = useStyles()
+  const [qty] = useState(item.quantity)
+
   return (
     <Card>
       <CardMedia
@@ -18,7 +21,7 @@ const CartItem = ({ item, handleUpdateCartQty, handleRemoveFromCart }) => {
         alt={item.name}
       />
       <CardContent className={classes.cardContent}>
-        <Typography variant="h5">{item.name}</Typography>
+        <Typography variant="h6" className={classes.itemName}>{item.name}</Typography>
         <Typography variant="h6">
           {item.line_total.formatted_with_symbol}
         </Typography>
@@ -28,7 +31,8 @@ const CartItem = ({ item, handleUpdateCartQty, handleRemoveFromCart }) => {
           <Button type="button" size="small" onClick={() => {handleUpdateCartQty(item.id, item.quantity - 1)}}>
             -
           </Button>
-          <Typography variant="h5">{item.quantity}</Typography>
+          <TextField className={classes.textField} defaultValue={qty} onChange={(e) => {handleUpdateCartQty(item.id,e.target.value )}}/>
+          {/* <Typography variant="h5">{item.quantity}</Typography> */}
           <Button type="button" size="small" onClick={() => {handleUpdateCartQty(item.id, item.quantity + 1)}}>
             +
           </Button>
